@@ -59,6 +59,7 @@
 #include "config_rpmsg.h"
 #include "config_wm8524.h"
 #include "config_cdnhdmi.h"
+#include "config_i2s_codec.h"
 #include "config_ak4458.h"
 #include "config_ak5558.h"
 #include "control.h"
@@ -129,7 +130,7 @@
 #define PRODUCT_NAME_PROPERTY   "ro.product.name"
 #define PRODUCT_DEVICE_IMX      "imx"
 #define PRODUCT_DEVICE_AUTO     "sabreauto"
-#define SUPPORT_CARD_NUM        21
+#define SUPPORT_CARD_NUM        22
 
 #define IMX8_BOARD_NAME "imx8"
 #define IMX7_BOARD_NAME "imx7"
@@ -143,6 +144,7 @@ static const char* lpa_wakelock = "lpa_audio_wakelock";
 struct audio_card *audio_card_list[SUPPORT_CARD_NUM] = {
     &wm8958_card,
     &wm8962_card,
+    &i2s_codec_card,
     &hdmi_card,
     /* &usbaudio_card, */
     &spdif_card,
