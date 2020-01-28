@@ -3429,8 +3429,7 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
      * guaranteed to be called after an output stream is opened. */
 
     if ((config->format != AUDIO_FORMAT_DEFAULT && config->format != out->stream.common.get_format(&out->stream.common)) ||
-        (config->channel_mask != 0 && config->channel_mask != out->stream.common.get_channels(&out->stream.common)) ||
-        (config->sample_rate != 0 && config->sample_rate != out->stream.common.get_sample_rate(&out->stream.common))) {
+        (config->channel_mask != 0 && config->channel_mask != out->stream.common.get_channels(&out->stream.common))) {
         ALOGI("%s: Unsupported output config. sample_rate:%d format:%#x channel_mask:%#x",
                       __func__, config->sample_rate, config->format, config->channel_mask);
         config->format = out->stream.common.get_format(&out->stream.common);
