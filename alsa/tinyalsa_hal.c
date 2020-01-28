@@ -4329,11 +4329,8 @@ static int scan_available_device(struct imx_audio_device *adev, bool queryInput,
                     rate = 44100;
 #endif
                     if( pcm_get_near_param_wrap(i, 0, PCM_OUT, PCM_HW_PARAM_RATE, &rate) == 0)
-                            adev->card_list[n]->out_rate = rate;
+                            adev->mm_rate = adev->card_list[n]->out_rate = rate;
                     ALOGW("out rate %d",adev->card_list[n]->out_rate);
-
-                    if(adev->card_list[n]->out_rate > adev->mm_rate)
-                        adev->mm_rate = adev->card_list[n]->out_rate;
 
                     channels = 2;
                     if( pcm_get_near_param_wrap(i, 0, PCM_OUT, PCM_HW_PARAM_CHANNELS, &channels) == 0)
